@@ -1,0 +1,20 @@
+<h1>Kien's Blog</h1>
+<style>
+    a{
+        text-decoration: none;
+        color: #000;
+    }
+
+    a:hover{
+        color: blue;
+    }
+</style>
+
+{% for post  in posts  reversed %} 
+    <a href="/posts/{{post.id}}">
+        <h1>{{ post.title }} </h1>
+        <h5>{{ post.created_at }}</h5>
+        <p>{{ post.body|truncatewords:20 }}</p>
+    </a>
+    <hr>
+{% endfor %}

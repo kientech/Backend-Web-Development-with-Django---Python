@@ -1,0 +1,19 @@
+<h1>Sign Up</h1>
+
+
+<form method='POST'>
+    {% csrf_token %}
+    <label for='username'>Username</label>
+    <input type='text' name='username' id='username'>
+
+    <label for='email'>Email</label>
+    <input type='email' name='email' id='email'>
+
+    <label for='password'>Password</label>
+    <input type='password' name='password' id='password'>
+
+    <label for='repeat_password'>Repeat Password</label>
+    <input type='password' name='repeat_password' id='repeat_password'>
+
+    <button>Submit</button>
+</form>

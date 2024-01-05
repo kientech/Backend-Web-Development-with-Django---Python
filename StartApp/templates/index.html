@@ -1,0 +1,36 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}" />
+
+<h1>Counter</h1>
+
+<form method="POST" action="counter">
+  {% csrf_token %}
+  <textarea name="words"></textarea> <br />
+  <input type="submit" />
+</form>
+
+
+
+{% for feature in features %}
+  <div>
+    <h1>{{ feature.id }}</h1>
+    <h2>{{ feature.name }}</h2>
+    <p>{{ feature.details }}</p>
+  </div>
+  {% if feature.name == 'Quick' %}
+    <h1>This is feature name is quick</h1>
+  {% endif %}
+
+  <hr>
+{% endfor %}
+
+
+{% if user.is_authenticated  %}
+  <h1>Welcome, {{user.username}}</h1>
+{% endif %}
+
+{% if user.is_authenticated  %}
+  <a href='logout'>Log Out</a>
+{% else %}
+  <a href='login'>Sign in or sign up</a>
+{% endif %}
